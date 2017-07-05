@@ -33,7 +33,7 @@
 - (NSArray* (^)(BOOL (^)(id x)))filter;
 - (NSArray*)filter:(BOOL (^)(id x))filter;
 
-- (NSArray*)flatten;
+- (NSArray*)flatten:(NSUInteger)level;
 
 @property (readonly) NSArray* (^ignore)(id x);
 - (NSArray* (^)(id x))ignore;

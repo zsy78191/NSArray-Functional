@@ -81,12 +81,12 @@
     return [array copy];
 }
 
-- (NSArray*)flatten
+- (NSArray*)flatten:(NSUInteger)level
 {
     NSMutableArray* array = [NSMutableArray array];
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[NSArray class]]) {
-            [array addObjectsFromArray:[(NSArray*)obj flatten]];
+        if ([obj isKindOfClass:[NSArray class]] && level > 0) {
+            [array addObjectsFromArray:[(NSArray*)obj flatten:level - 1]];
         }
         else
         {
